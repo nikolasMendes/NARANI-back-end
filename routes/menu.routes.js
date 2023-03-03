@@ -1,5 +1,6 @@
 import express from "express";
 import { MenuModel } from "../model/menu.model.js";
+import { UserModel } from "../model/user.model.js";
 
 const menuRouter = express.Router();
 
@@ -44,6 +45,43 @@ menuRouter.get("/", async (req, res) => {
     }
 
     res.status(500).json(error.message);
+  }
+});
+
+menuRouter.delete("/delete/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    let deletedFood = await MenuModel.findByIdAndDelete(id);
+    return res.status(200).json(deletedFood);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
+  }
+});
+
+menuRouter.put("/edit/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    let updatedFood = await MenuModel.findByIdAndUpdate(
+      id,
+      { ...req.body },
+      { new: true, runValidators: true }
+    );
+    return res.status(200).json(updatedFood);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
+  }
+});
+
+menuRouter.get("/details/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    let oneFood = await MenuModel.findById(id);
+    return res.status(200).json(oneFood);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json(err);
   }
 });
 
