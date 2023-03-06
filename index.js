@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.use(`/api/user`, userRouter);
 app.use(`/api/uploadImage`, uploadImgRouter);
-app.use("/menu", menuRouter);
+app.use("/api/menu", menuRouter);
 
 app.listen(Number(process.env.PORT), () => {
   console.log(`Server up and running at port ${process.env.PORT}`);
