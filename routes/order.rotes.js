@@ -61,21 +61,26 @@ orderRouter.delete("/:orderId", async (req, res) => {
   }
 });
 
-// orderRoute.get("/:order", isAuth, attachCurrentUser(req, res) => {
-//   try {const orders = await OrdersModel.find({ client: req.currentUser._id }).populate("client").populate("pedido")}catch (error) {
-// console.log(error);
-// // checking validation
-// if (error.name === "ValidationError") {
-//   const message = Object.values(error.errors).map((value) => value.message);
-//   return res.status(400).json({
-//     error: message,
-//   });
-// }
+//GETALL TODOS OS PEDIDOS FINALIZADOS
+orderRouter.get("/:order", isAuth, attachCurrentUser, async (req, res) => {
+  try {
+    const orders = await OrderModel.find({ client: req.currentUser._id })
+      .populate("client")
+      .populate("pedido");
+  } catch (error) {
+    console.log(error);
+    // checking validation
+    if (error.name === "ValidationError") {
+      const message = Object.values(error.errors).map((value) => value.message);
+      return res.status(400).json({
+        error: message,
+      });
+    }
 
-// if (error.code === 11000) {
-//   return res.status(400).json(error.message);
-// }
+    if (error.code === 11000) {
+      return res.status(400).json(error.message);
+    }
 
-// return res.status(500).json(error.message);
-
-// });
+    return res.status(500).json(error.message);
+  }
+});
