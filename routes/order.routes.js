@@ -84,3 +84,5 @@ orderRouter.get("/:order", isAuth, attachCurrentUser, async (req, res) => {
     return res.status(500).json(error.message);
   }
 });
+
+export { orderRouter };
