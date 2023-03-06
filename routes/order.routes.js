@@ -1,6 +1,8 @@
 import express from "express";
 import { OrderModel } from "../model/order.models.js";
 import { UserModel } from "../model/user.model.js";
+import isAuth from "../middlewares/isAuth.js";
+import attachCurrentUser from "../middlewares/attachCurrentUser.js";
 
 const orderRouter = express.Router();
 
