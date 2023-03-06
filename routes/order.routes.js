@@ -1,6 +1,6 @@
 import express from "express";
 import { OrderModel } from "../model/order.models";
-import { UserModel } from "./../model/user.model.js";
+import { UserModel } from "../model/user.model.js";
 
 const orderRouter = express.Router();
 

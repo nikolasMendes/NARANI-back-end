@@ -1,12 +1,12 @@
 import { Schema, model } from "mongoose";
 
 const menuSchema = new Schema({
-  prato: { type: String, requerid: true },
+  prato: { type: String, required: true },
   imagem: { type: String },
-  descrição: { type: String, requerid: true, minlength: 10 },
-  quantidade: { type: Number, requerid: true },
-  serve: { type: String, requerid: true },
-  calorias: { type: String, requerid: true },
+  descrição: { type: String, required: true, minlength: 10 },
+  quantidade: { type: Number, required: true },
+  serve: { type: String, required: true },
+  calorias: { type: String, required: true },
 });
 
 export const MenuModel = model("Menu", menuSchema);
