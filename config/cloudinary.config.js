@@ -21,6 +21,7 @@ const storage = new CloudinaryStorage({
   params: {
     folder: "pictures",
     format: async (req, file) => "png",
+    allowedFormats: ["jpeg", "png"],
     use_filename: true,
   },
 });
