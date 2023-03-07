@@ -40,7 +40,7 @@ orderRouter.post("/", async (req, res) => {
 });
 
 //DELETE
-orderRouter.delete("/:orderId", async (req, res) => {
+orderRouter.delete("/:orderId", isAuth, attachCurrentUser, async (req, res) => {
   try {
     const { orderId } = req.params;
     const deleted = await OrderModel.deleteOne({ _id: orderId });
