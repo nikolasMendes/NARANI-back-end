@@ -7,12 +7,12 @@ import attachCurrentUser from "../middlewares/attachCurrentUser.js";
 const orderRouter = express.Router();
 
 //POST
-orderRouter.post("/", async (req, res) => {
+orderRouter.post("/", isAuth, attachCurrentUser, async (req, res) => {
   try {
     //const { orderId } = req.params;
     const newOrder = await OrderModel.create({
       ...req.body,
-      name: req.currentUser._id,
+      client: req.currentUser._id,
     }); //alterar wineModel com o model que foi criado no menu
     await UserModel.findOneAndUpdate(
       { _id: req.currentUser._id },
@@ -64,11 +64,12 @@ orderRouter.delete("/:orderId", isAuth, attachCurrentUser, async (req, res) => {
 });
 
 //GETALL TODOS OS PEDIDOS FINALIZADOS
-orderRouter.get("/:order", isAuth, attachCurrentUser, async (req, res) => {
+orderRouter.get("/", isAuth, attachCurrentUser, async (req, res) => {
   try {
     const orders = await OrderModel.find({ client: req.currentUser._id })
       .populate("client")
       .populate("pedido");
+    return res.status(200).json(orders);
   } catch (error) {
     console.log(error);
     // checking validation
