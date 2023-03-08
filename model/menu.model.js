@@ -5,7 +5,7 @@ const menuSchema = new Schema({
   imagem: { type: String },
   descrição: { type: String, required: true, minlength: 10 },
   quantidade: { type: Number, required: true },
-  serve: { type: String, required: true },
+  preparo: { type: String, required: true },
   calorias: { type: String, required: true },
 });
 
