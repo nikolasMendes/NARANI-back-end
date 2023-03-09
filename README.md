@@ -1,11 +1,121 @@
-# API RESTful template + Token Based Auth
+# NARANI SERVER #1
 
-Template para construção de APIs utilizando Node, Express, JWT e Mongoose.
+Back-end project for food order app (**mobile** and **web**)!
 
-**Utilização:**
+# About the project
 
-- Clique no botão "Use this template"
-- Clone o repo que for criado nesse processo
-- Execute o comando `npm install` no terminal na raiz do projeto
-- Crie um arquivo `.env` baseado no arquivo `.exemple.env` presente no repositório
-- Para colocar o servidor para rodar, execute no terminal o comando `npm run dev`
+This project has been created in the third module at Ironhack São Paulo - Web Development Bootcamp.
+
+Simple REST API to allow for complete CRUD at the endpoint:
+
+**Caution: Exclusive use for Narani-Client**
+
+# Usage
+
+Complete CRUD functionality
+
+## User Routes
+
+**Create**
+
+```
+POST /api/user/signup
+
+```
+
+**Login**
+
+```
+POST /api/user/login
+
+```
+
+## Menu Routes
+
+**Create Dish**
+
+```
+POST /api/menu
+
+```
+
+**Get All Dishes**
+
+```
+GET /api/menu
+
+```
+
+**Get Current Dish by Id**
+
+```
+GET /api/menu/details/:id
+
+```
+
+**Update Dish by Id**
+
+```
+PUT /api/menu/edit/:id
+
+```
+
+**Delete Dish by Id**
+
+```
+DELETE /api/menu/delete/:id
+
+```
+
+## Order Route
+
+**Create Order**
+
+```
+POST /api/order/
+```
+
+**Delete Order by Id**
+
+```
+DELETE /api/order/:id
+
+```
+
+**Get All Orders **
+
+```
+GET /api/order/
+
+```
+
+## Image Route
+
+**Create Image**
+
+```
+POST /api/uploadImage
+
+```
+
+# Developers GitHub
+
+- [Rafael Gilberto Rezende Lima](https://github.com/RafaelGilberto)
+- [Nikolas Mendes](https://github.com/nikolasMendes)
+- [Nayra Guerreiro](https://github.com/NayraGuerreiro)
+
+# NARANI CLIENT
+
+Front-end for food order app (**mobile** and **web**)!
+
+[Click here](https://github.com/nikolasMendes/NARANI-front-end)
+
+## Install
+
+To run the application on your localhost, clone the repo and then execute the commands below:
+
+**Note: Don't forget to create .env and update like exemple.env**
+
+- `$ git clone [https://github.com/nikolasMendes/NARANI-back-end](https://github.com/nikolasMendes/NARANI-back-end)`
+- `$ cd NARANI-back-end npm install`
+- `$ npm run start`
